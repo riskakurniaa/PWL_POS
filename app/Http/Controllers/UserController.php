@@ -15,7 +15,7 @@ class UserController extends Controller
         //     'username' => 'customer-1',
         //     'nama' => 'Pelanggan',
         //     'password' => Hash::make('12345'),
-        //     'lavel_id' => 4
+        //     'level_id' => 4
         // ];
         // UserModel::insert($data); // tambahkan data ke tabel m_user
 
