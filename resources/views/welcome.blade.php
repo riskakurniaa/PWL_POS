@@ -1,75 +1,35 @@
 @extends('adminlte::page')
 
-{{-- Extend and customize the browser title --}}
-
-@section('title')
-    {{ config('adminlte.title') }}
-    @hasSection('subtitle')
-        | @yield('subtitle')
-    @endif
-@stop
-
-@vite('resources/js/app.js')
-
-{{-- Extend and customize the page content header --}}
+@section('title', 'Dashboard')
 
 @section('content_header')
-    @hasSection('content_header_title')
-        <h1 class="text-muted">
-            @yield('content_header_title')
-
-            @hasSection('content_header_subtitle')
-                <small class="text-dark">
-                    <i class="fas fa-xs fa-angle-right text-muted"></i>
-                    @yield('content_header_subtitle')
-                </small>
-            @endif
-        </h1>
-    @endif
+    <h1>Dashboard</h1>
 @stop
-
-{{-- Rename section content to content_body --}}
 
 @section('content')
-    @yield('content_body')
-@stop
-
-{{-- Create a common footer --}}
-
-@section('footer')
-    <div class="float-right">
-        Version: {{ config('app.version', '1.0.0') }}
+    <div class="card-body">
+        <form>
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Level id</label>
+                        <input type="text" class="form-control" placeholder="id">
+                    </div>
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+            </div>
+        </form>
     </div>
-
-    <strong>
-        <a href="{{ config('app.company_url', '#') }}">
-            {{ config('app.company_name', 'My company') }}
-        </a>
-    </strong>
 @stop
 
-{{-- Add common Javascript/Jquery code --}}
+@section('css')
+    {{-- Add extra stylesheets here --}}
+    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+@stop
 
-@push('js')
-    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
-@endpush
-
-@stack('scripts')
-
-{{-- Add common CSS customizations --}}
-
-@push('css')
-    <link rel="stylesheet"href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" />
-
-    <style type="text/css">
-        /* You can add AdminLTE customizations here */
-        /*
-        .card-header {
-            border-bottom: none;
-        }
-        .card-title {
-            font-weight: 600;
-        }
-        */
-    </style>
-@endpush
+@section('js')
+    <script>
+        console.log("Hi, I'm using the Laravel-AdminLTE package!");
+    </script>
+@stop

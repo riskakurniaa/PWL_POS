@@ -24,8 +24,8 @@ class KategoriDataTable extends DataTable
         return (new EloquentDataTable($query))
             /* ->addColumn('action', 'kategori.action') */
             ->addColumn('action', function ($row) {
-                return '<a href="/PWL_POS/public/kategori/edit/' . $row->kategori_id . '"class="btn btn-warning ">Edit</a>
-                        <a href="/PWL_POS/public/kategori/delete/' . $row->kategori_id . '"class="btn btn-danger ">Delete</a>';
+                return '<a href="' . route('kategori.edit', $row->kategori_id)  . '"class="btn btn-warning ">Edit</a>
+                        <a href="' . route('kategori.delete', $row->kategori_id) . '"class="btn btn-danger ">Delete</a>';
             })
             ->setRowId('id');
     }
@@ -55,7 +55,7 @@ class KategoriDataTable extends DataTable
                 Button::make('print'),
                 Button::make('reset'),
                 Button::make('reload'),
-                Button::make('add')->text(' + ')->action('window.location.href = "' . route('category.create') . '"'),
+                Button::make('add')->text(' + ')->action('window.location.href = "' . route('kategori.create') . '"'),
             ]);
     }
     /**
