@@ -5,6 +5,7 @@ use App\Http\Controllers\LevelController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MLevelController;
 use App\Http\Controllers\MUserController;
+use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -44,3 +45,5 @@ Route::post('/level', [MLevelController::class, 'store'])->name('level.store');
 Route::get('/level/edit/{id}', [MLevelController::class, 'edit'])->name('level.edit');
 Route::put('/level/{id}', [MLevelController::class, 'update']);
 Route::get('/level/delete/{id}', [MLevelController::class, 'delete'])->name('level.delete');
+
+Route::resource('m_user', POSController::class);
