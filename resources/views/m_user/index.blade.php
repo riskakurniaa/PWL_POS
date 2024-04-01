@@ -36,7 +36,7 @@
             @foreach ($useri as $m_user)
             <tr>
                 <td>{{ $m_user->user_id }}</td>
-                <td>{{ $m_user->id_level }}</td>
+                <td>{{ $m_user->level_id }}</td>
                 <td>{{ $m_user->username }}</td>
                 <td>{{ $m_user->nama }}</td>
                 <td>{{ $m_user->password }}</td>

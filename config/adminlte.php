@@ -324,7 +324,7 @@ return [
         ],
         [
             'text' => 'Manage User',
-            'url' => '/user',
+            'url' => '/m_user',
             'icon' => 'fas fa-fw fa-user',
             'label_color' => 'success',
         ],
