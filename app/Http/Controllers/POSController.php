@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\UserDataTable;
 use App\Models\UserModel;
 use App\Models\LevelModel;
 use Illuminate\Http\Request;
@@ -41,6 +42,7 @@ class POSController extends Controller
             'username' => 'required',
             'nama' => 'required',
             'level_id' => 'required',
+            'level_nama' => 'required',
         ]);
         //fungsi eloquent untuk menambah data
         UserModel::create($request->all());

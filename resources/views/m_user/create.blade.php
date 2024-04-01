@@ -29,31 +29,28 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Username:</strong>
-                <input type="text" name="username" class="form-control" placeholder="Masukkan username"></input>
+                <input type="text" name="username" class="form-control" placeholder="Masukkan username">
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama:</strong>
-                <input type="text" name="nama" class="form-control" placeholder="Masukkan nama"></input>
+                <input type="text" name="nama" class="form-control" placeholder="Masukkan nama">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Level id :</strong>
+                <input type="number" name="level_id" class="form-control" placeholder="Masukkan level_id">
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Password:</strong>
-                <input type="password" name="password" class="form-control" placeholder="Masukkan password"></input>
+                <input type="password" name="password" class="form-control" placeholder="Masukkan password">
             </div>
-        </div>
-
-        <div class="form-group">
-            <strong>Level:</strong>
-            <select name="level_id" class="form-control">
-                @foreach ($levels as $level)
-                    <option value="{{ $level->level_id }}">{{ $level->level_nama }}</option>
-                @endforeach
-            </select>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

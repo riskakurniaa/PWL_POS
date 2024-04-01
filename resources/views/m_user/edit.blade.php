@@ -31,35 +31,40 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>User_id:</strong>
-                    <input type="text" name="userid" value="{{ $useri->user_id }}" class="form-control" placeholder="Masukkan user id"></input>
+                    <input type="text" name="userid" value="{{ $useri->user_id }}" class="form-control"
+                        placeholder="Masukkan user id">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Level_id:</strong>
-                    <input type="text" name="levelid" value="{{ $useri->level_id }}" class="form-control" placeholder="Masukkan level"></input>
+                    <input type="text" name="levelid" value="{{ $useri->level_id }}" class="form-control"
+                        placeholder="Masukkan level">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Username:</strong>
-                    <input type="text" name="username" value="{{ $useri->username }}" class="form-control" placeholder="Masukkan username"></input>
+                    <input type="text" name="username" value="{{ $useri->username }}" class="form-control"
+                        placeholder="Masukkan username">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Nama:</strong>
-                    <input type="text" name="nama" value="{{ $useri->nama }}" class="form-control" placeholder="Masukkan nama"></input>
+                    <input type="text" name="nama" value="{{ $useri->nama }}" class="form-control"
+                        placeholder="Masukkan nama">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Password:</strong>
-                    <input type="password" name="password" value="{{ $useri->password }}" class="form-control" placeholder="Masukkan password"></input>
+                    <input type="password" name="password" value="{{ $useri->password }}" class="form-control"
+                        placeholder="Masukkan password">
                 </div>
             </div>
 
