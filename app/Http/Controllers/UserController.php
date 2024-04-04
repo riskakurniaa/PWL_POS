@@ -84,6 +84,7 @@ class UserController extends Controller
         UserModel::create([
             'username'  => $request->username,
             'nama'      => $request->nama,
+            'password' => Hash::make('$request->password'),
             'password'  => bcrypt($request->password), // password dienkripsi sebelum disimpan
             'level_id'  => $request->level_id
         ]);

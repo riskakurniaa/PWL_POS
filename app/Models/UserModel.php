@@ -15,18 +15,16 @@ class UserModel extends Model
     protected $table = 'm_user';
     protected $primaryKey = 'user_id';
     protected $fillable = [
-        'user_id',
         'level_id',
         'username',
         'nama',
         'password',
     ];
 
-    // protected $timestamps = false;
-    // protected $guarded = [];
-
     public function level(): BelongsTo
     {
         return $this->belongsTo(LevelModel::class, 'level_id', 'level_id');
     }
+
+    // protected $guarded = [];
 }
