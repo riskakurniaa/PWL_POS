@@ -26,7 +26,7 @@
                 <div class="form-group row">
                     <label class="col-1 control-label col-form-label">Tanggal Stok</label>
                     <div class="col-11">
-                        <input type="date" class="form-control" name="stok_tanggal" value="{{ date('Y-m-d') }}" required>
+                        <input type="datetime-local" class="form-control" name="stok_tanggal" value="{{ date('Y-m-d') }}" required>
                         @error('stok_tanggal')
                             <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
