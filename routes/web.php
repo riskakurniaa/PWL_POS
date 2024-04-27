@@ -14,6 +14,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\Api\RegisterController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -140,3 +141,5 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('manager', ManagerController::class);
     });
 });
+
+Route::post('/register', App\Http\Controllers\Api\RegisterController::class)->name('register');
