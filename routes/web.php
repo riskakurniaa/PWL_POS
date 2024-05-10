@@ -140,3 +140,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('manager', ManagerController::class);
     });
 });
+
+use App\Http\Controllers\FileUploadController;
+
+Route::get('/file-upload', [FileUploadController::class, 'fileUpload']);
+Route::post('/file-upload', [FileUploadController::class, 'prosesFileUpload']);
