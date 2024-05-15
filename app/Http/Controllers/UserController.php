@@ -33,7 +33,7 @@ class UserController extends Controller
     // Ambil data user dalam bentuk json untuk datatables
     public function list(Request $request)
     {
-        $users = UserModel::select('user_id', 'username', 'nama', 'level_id')->with('level');
+        $users = UserModel::select('user_id', 'username', 'nama', 'level_id', 'image')->with('level');
 
         // Filter data user berdasarkan level_id
         if ($request->level_id) {
@@ -78,15 +78,24 @@ class UserController extends Controller
             'username'  => 'required|string|min:3|unique:m_user,username',
             'nama'      => 'required|string|max:100|',
             'password'  => 'required|min:5|',
-            'level_id'  => 'required|integer|'
+            'level_id'  => 'required|integer|',
+            'image' => 'required|file|image|max:2048'
         ]);
+
+        $extfile = $request->image->getClientOriginalName();
+        $namaFile = 'web-' . time() . "." . $extfile;
+
+        $path = $request->image->move('gambarUser', $namaFile);
+        $path = str_replace("\\", "//", $path);
+        $pathBaru = asset('gambarUser/' . $namaFile);
 
         UserModel::create([
             'username'  => $request->username,
             'nama'      => $request->nama,
             'password' => Hash::make('$request->password'),
             'password'  => bcrypt($request->password), // password dienkripsi sebelum disimpan
-            'level_id'  => $request->level_id
+            'level_id'  => $request->level_id,
+            'image' => $pathBaru
         ]);
 
         return redirect('/user')->with('success', 'Data user berhasil disimpan');
@@ -165,6 +174,7 @@ class UserController extends Controller
             return redirect('/user')->with('error', 'Data user gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
         }
     }
+}
     // public function index()
     // {
     //     // $user = UserModel::all();
@@ -217,4 +227,3 @@ class UserController extends Controller
 
     //     return redirect('/user');
     // }
-}

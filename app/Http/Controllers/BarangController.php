@@ -29,7 +29,7 @@ class BarangController extends Controller
     // Ambil data barang dalam bentuk json untuk datatables
     public function list(Request $request)
     {
-        $barangs = BarangModel::select('barang_id', 'kategori_id', 'barang_kode', 'barang_nama', 'harga_beli', 'harga_jual')->with('kategori');
+        $barangs = BarangModel::select('barang_id', 'kategori_id', 'barang_kode', 'barang_nama', 'harga_beli', 'harga_jual', 'image')->with('kategori');
 
         //Filter data barang berdasarkan level_id
         if ($request->kategori_id) {
@@ -67,18 +67,27 @@ class BarangController extends Controller
     {
         $request->validate([
             'barang_kode' => 'required|string|max:10|unique:m_barang',
-            'barang_nama' => 'required|string|max:100|unique:m_barang,barang_nama',
+            'barang_nama' => 'required|string|max:100',
             'harga_beli' => 'required|integer',
             'harga_jual' => 'required|integer',
-            'kategori_id' => 'required|integer'
+            'kategori_id' => 'required|integer',
+            'image' => 'required|file|image|max:2048'
         ]);
+
+        $extfile = $request->image->getClientOriginalName();
+        $namaFile = 'web-' . time() . "." . $extfile;
+
+        $path = $request->image->move('gambarBarang', $namaFile);
+        $path = str_replace("\\", "//", $path);
+        $pathBaru = asset('gambarBarang/' . $namaFile);
 
         BarangModel::create([
             'barang_kode' => $request->barang_kode,
             'barang_nama' => $request->barang_nama,
             'harga_jual' => $request->harga_jual,
             'harga_beli' => $request->harga_beli,
-            'kategori_id' => $request->kategori_id
+            'kategori_id' => $request->kategori_id,
+            'image' => $pathBaru
         ]);
         return redirect('/barang')->with('success', 'Data barang berhasil disimpan');
     }
@@ -137,7 +146,7 @@ class BarangController extends Controller
     {
         $request->validate([
             'barang_kode' => 'required|string|max:10',
-            'barang_nama' => 'required|string|max:100|unique:m_barang,barang_nama',
+            'barang_nama' => 'required|string|max:100',
             'harga_beli' => 'required|integer',
             'harga_jual' => 'required|integer',
             'kategori_id' => 'required|integer'
